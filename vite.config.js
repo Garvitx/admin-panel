@@ -8,6 +8,7 @@ import checker from 'vite-plugin-checker';
 export default defineConfig({
   plugins: [
     react(),
+      // Adding TypeScript type checking
   ],
   resolve: {
     alias: [
@@ -22,9 +23,16 @@ export default defineConfig({
     ],
   },
   server: {
-    port: 3030,
+    port: 3000,
+    proxy: {
+      '/api': {
+        target: 'https://repository.jspl.com/RepositoryApp',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   },
   preview: {
-    port: 3030,
+    port: 3000,
   },
 });

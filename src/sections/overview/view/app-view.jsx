@@ -136,10 +136,10 @@ export default function AppView() {
 
       <Box sx={{ p: 2, bgcolor: '#f4f4f4', borderRadius: 1 }}>  {/* Increased padding */}
         <Grid container spacing={2} alignItems="center">
-          <Grid item xs={12} md={2}>
+          <Grid item xs={12} md={2} >
             <FormControl fullWidth>
-              <InputLabel>District</InputLabel>
-              <Select value={selectedDistrict} onChange={handleDistrictChange}>
+            <InputLabel shrink>District</InputLabel>              
+            <Select value={selectedDistrict} onChange={handleDistrictChange}>
                 {dummyData.districts.map((district) => (
                   <MenuItem key={district.name} value={district.name}>
                     {district.name}
